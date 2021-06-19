@@ -7,5 +7,9 @@ node {
       def mavenCMD = "${mavenHome}/bin/mvn"
       sh  "${mavenCMD} clean package"
      } 
+  
+   stage('Build Docker Image'){
+        sh 'docker build -t saswatpattnaik21/bipulmongo .'
+    }
    
 }
