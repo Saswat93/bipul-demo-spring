@@ -18,4 +18,11 @@ node {
         sh 'docker push saswatpattnaik21/bipulmongo'
      }
    
+   stage("Deploy To Kuberates Cluster"){
+       kubernetesDeploy(
+         configs: 'springBootMongo.yml', 
+         kubeconfigId: 'KUBERNATES_CONFIG',
+         enableConfigSubstitution: true
+        )
+     }
 }
